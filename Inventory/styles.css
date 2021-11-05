@@ -1,0 +1,204 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap");
+
+/* Set no margin and padding around body. Set height to take up entire screen height. Align everything to the center, both horizontally and vertically */
+/* Clearing floats */
+.cf:before,
+.cf:after {
+  content: " ";
+  display: table;
+}
+
+.cf:after {
+  clear: both;
+}
+
+.cf {
+  *zoom: 1;
+}
+
+/* Mini reset, no margins, paddings or bullets */
+.menu,
+.submenu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  padding-bottom: 4cm;
+}
+
+/* Main level */
+.menu {			
+  margin: 30px auto;
+  width: 700px;
+ 
+  /* http://www.red-team-design.com/horizontal-centering-using-css-fit-content-value */
+  width: -moz-fit-content;
+  width: -webkit-fit-content;
+  width: fit-content;	
+}
+
+.menu > li {
+  background: #34495e;
+  float: left;
+  position: left;
+  transform: skewX(25deg);
+  border-radius:2in;
+}
+
+.menu a {
+  display: block;
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-family: Arial, Helvetica;
+  font-size: 14px;
+}		
+
+.menu li:hover {
+  background: #460808;
+}		
+
+.menu > li > a {
+  transform: skewX(-25deg);
+  padding: 1em 2em;
+}
+
+/* Dropdown */
+.submenu {
+  position: absolute;
+  width: 200px;
+  left: 50%; margin-left: -100px;
+  transform: skewX(-25deg);
+  transform-origin: left top;
+}
+
+.submenu li {
+  background-color: #34495e;
+  position: relative;
+  overflow: hidden;		
+}						
+
+.submenu > li > a {
+  padding: 1em 2em;			
+}
+
+.submenu > li::after {
+  content: '';
+  position: absolute;
+  top: -125%;
+  height: 100%;
+  width: 100%;			
+  box-shadow: 0 0 50px rgba(0, 0, 0, .9);			
+}		
+
+/* Odd stuff */
+.submenu > li:nth-child(odd){
+  transform: skewX(-25deg) translateX(0);
+}
+
+.submenu > li:nth-child(odd) > a {
+  transform: skewX(25deg);
+}
+
+.submenu > li:nth-child(odd)::after {
+  right: -50%;
+  transform: skewX(-25deg) rotate(3deg);
+}				
+
+/* Even stuff */
+.submenu > li:nth-child(even){
+  transform: skewX(25deg) translateX(0);
+}
+
+.submenu > li:nth-child(even) > a {
+  transform: skewX(-25deg);
+}
+
+.submenu > li:nth-child(even)::after {
+  left: -50%;
+  transform: skewX(25deg) rotate(3deg);
+}
+
+/* Show dropdown */
+.submenu,
+.submenu li {
+  opacity: 0;
+  visibility: hidden;			
+}
+
+.submenu li {
+  transition: .2s ease transform;
+}
+
+.menu > li:hover .submenu,
+.menu > li:hover .submenu li {
+  opacity: 1;
+  visibility: visible;
+}		
+
+.menu > li:hover .submenu li:nth-child(even){
+  transform: skewX(25deg) translateX(15px);			
+}
+
+.menu > li:hover .submenu li:nth-child(odd){
+  transform: skewX(-25deg) translateX(-15px);			
+}
+
+
+
+body {
+  margin: 0;
+  height: 70vh;
+  padding: 0;
+  font-family: "lato", sans-seriff;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+}
+
+/* Remove border and outline around input. Set width to take up the entire width of parent and set margin on bottom */
+
+/* When input gains focus, add a blue border below it */
+
+/* Sets width of table container (div) to 80% of browser window's width and the height to 100% of window's height. `vh` and `vw` makes the table responsive because it scales along with screen size. Also set margin of 20px to top and bottom */
+
+.app {
+    width: 80vw;
+    height: 100vh;
+    margin: 20px 0;
+  }
+  
+  /* Collapse all borders separating each cell. Table takes up entire width of .app. Set gray shadow around table */
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    box-shadow: 0 5px 7px rgb(90, 13, 13);
+  }
+  
+  /* Set shadow on just the table head */
+  thead {
+    box-shadow: 0px 0px 10px rgb(99, 10, 10);
+  }
+  
+  /* Add some space around table heading. Align text to right and transform to uppercase */
+  
+  th {
+    font-family: cursive;
+    padding: 1rem 3rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: left;
+  }
+  
+  /* Add padding on each cell */
+  td {
+    font-family: serif;
+    padding: 0.5rem 3rem;
+    font-size: 1rem;
+  }
+  
+  /* Create alternating color(blue) across the rows. Set blue on all even ones (2, 4, 6 ...) */
+  
+  tr:nth-child(even) {
+    background-color: #bd7e7c;
+  }
